@@ -13,37 +13,41 @@ public class frq
     private int[] rateTable = {50, 60, 160, 60, 80, 100, 100, 120, 150, 150, 150, 200, 40, 240, 
         220, 220, 200, 200, 180, 180, 140, 100, 80, 60};
 
-    /**
-     * Constructor for objects of class frq
+     private int getChargingCost(int startHour, int chargeTime)
+     { 
+         int time = 0;
+         int cost = 0;
+         
+         for (int i = startHour; i < (startHour + chargeTime); i++) {
+             time = i;
+             while (time > 23) time -= 24;
+             cost += rateTable[time];
+         }
+         
+         return cost;
+     }
+     
+    /** Determines start time to charge the battery at the lowest cost for the given charge time.
+     * @param chargeTime the number of hours the battery needs to be charged
+     * Precondition: chargeTime > 0
+     * @return an optimal start time, with 0 ≤ returned value ≤ 23
      */
-     private int getChargingCost(int startHour, int chargeTime) {
-       int cost = 0;
-       int i = 0;
-       int hour = startHour;
-       while(i < chargeTime) {
-           cost += rateTable[hour];
-           hour--;
-           i++;
-       }
-       return cost;
-    }
+    
+     public int getChargeStartTime(int chargeTime)
+     { 
+        int lowestCost = Integer.MAX_VALUE;
+        int startCost = 0;
+        
+        for (int i = 0; i < rateTable.length; i++) {
+            if (getChargingCost(i, chargeTime) < lowestCost) {
+                lowestCost = getChargingCost(i, chargeTime);
+                startCost = i;
+            }
+        }
+        
+        return startCost;
+     }
+ 
+} 
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int getChargeStartingTime(int chargeTime)
-    {
-        int i = 0;
-        int start = 0;
-        int cost = getChargingCost(i, chargeTime);
-        while (i <= chargeTime) {
-        if (getChargingCost(i,chargeTime) < (cost))
-        start++;
-    }
-    return start;
-}
-}
 
