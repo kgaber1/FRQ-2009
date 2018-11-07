@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=BatteryCharger
+comment0.text=\r\n\ Contains\ 2\ methods(getChargingCost)\ and\ (getChargeStartTime)\r\n\ to\ determine\ the\ best\ time\ to\ charge\ your\ electric\ vehicle.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=table
+comment1.target=BatteryCharger(int[])
+comment1.text=\ constructs\ a\ new\ battery\ charger\ object\r\n\ \r\n
+comment2.params=startHour\ chargeTime
+comment2.target=int\ getChargingCost(int,\ int)
+comment2.text=\r\n\ @param\ startHour\ the\ hour\ at\ which\ the\ harge\ period\ begins.\r\n\ @param\ chargeTime\ -\ the\ number\ of\ hours\ the\ battery\ needs\ to\ be\ charged.\r\n\ @Return\ the\ total\ cost\ to\ charge\ the\ battery\ \r\n
+comment3.params=chargeTime
+comment3.target=int\ getChargeStartTime(int)
+comment3.text=\ Determines\ start\ time\ to\ charge\ the\ battery\ at\ the\ lowest\ cost\ for\ the\ given\ charge\ time.\r\n\ @param\ chargeTime\ the\ number\ of\ hours\ the\ battery\ needs\ to\ be\ charged\r\n\ Precondition\:\ chargeTime\ >\ 0\r\n\ @return\ an\ optimal\ start\ time,\ with\ 0\ \u2264\ returned\ value\ \u2264\ 23\r\n
+numComments=4
